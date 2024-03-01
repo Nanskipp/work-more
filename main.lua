@@ -9,7 +9,7 @@ end
 
 Client.Tick = function(dt)
     deltaTime = 62/(1/dt)
-    if githubScriptsCount == 3 then
+    if githubScriptsCount == 2 then
         githubScriptsCount = nil
 
         start()
@@ -37,6 +37,9 @@ loadFromGitHub = function(url, callback)
         if res.StatusCode ~= 200 then
             print("Error on github loading. Code: " .. res.StatusCode)
             return
+        end
+        if Player.Username == "nanskip" then 
+            print("Loaded: " .. url)
         end
         local obj = load(res.Body:ToString(), nil, "bt", _ENV)
 
