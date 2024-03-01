@@ -5,6 +5,8 @@ Config.Map = "nanskip.red_voxel"
 Client.OnStart = function()
     githubScriptsCount = 0
     loadGitHub()
+
+    Camera:SetParent(nil)
 end
 
 Client.Tick = function(dt)
@@ -23,6 +25,7 @@ loadGitHub = function()
     loadFromGitHub("https://raw.githubusercontent.com/Nanskipp/work-more/main/scripts/start.lua",
     function(obj)
         start = obj -- set this as start function
+        Camera:SetParent(World)
         start()
     end)
     loadFromGitHub("https://raw.githubusercontent.com/Nanskipp/work-more/main/scripts/tick.lua",
