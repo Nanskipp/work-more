@@ -2,12 +2,14 @@
 -- This is start function, better set everything that must be started once only here.
 
 -- camera config
-Camera:SetModeFree()
-Camera.Position = Number3(Map.Width*Map.Scale.X/2, Map.Height*Map.Scale.Y/2, Map.Depth*Map.Scale.Z/2)
-Camera.Rotation = Rotation(1, 3.14, 0)
-Camera.Far = 10000
-Camera.FOV = 5 - (Screen.Height/Screen.Width)
-Camera.Position = Camera.Position + Camera.Backward*1000
+Screen.DidResize = function()
+    Camera:SetModeFree()
+    Camera.Position = Number3(Map.Width*Map.Scale.X/2, Map.Height*Map.Scale.Y/2, Map.Depth*Map.Scale.Z/2)
+    Camera.Rotation = Rotation(1, 3.14, 0)
+    Camera.Far = 10000
+    Camera.FOV = 5 - (Screen.Height/Screen.Width)
+    Camera.Position = Camera.Position + Camera.Backward*1000
+end
 
 -- AMBIENCE SETUP (begin) --
 
