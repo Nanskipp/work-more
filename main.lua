@@ -32,6 +32,10 @@ loadGitHub = function()
     function(obj)
         tick = obj -- set this as tick function
     end)
+    loadFromGitHub("https://raw.githubusercontent.com/Nanskipp/work-more/main/scripts/workers.lua",
+    function(obj)
+        workers = obj()
+    end)
 end
 
 -- loading function
