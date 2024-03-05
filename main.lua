@@ -11,7 +11,7 @@ end
 
 Client.Tick = function(dt)
     deltaTime = 62/(1/dt)
-    if githubScriptsCount == 2 then
+    if githubScriptsCount == 3 then
         githubScriptsCount = nil
 
         start()
