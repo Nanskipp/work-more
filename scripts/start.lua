@@ -4,11 +4,14 @@
 -- camera config
 Screen.DidResize = function()
     Camera:SetModeFree()
+	Camera.Projection = ProjectionMode.Orthographic
     Camera.Position = Number3(Map.Width*Map.Scale.X/2, Map.Height*Map.Scale.Y/2, Map.Depth*Map.Scale.Z/2)
     Camera.Rotation = Rotation(1, 3.14, 0)
     Camera.Far = 10000
-    Camera.FOV = 5 - (Screen.Height/Screen.Width)
     Camera.Position = Camera.Position + Camera.Backward*1000
+
+	Camera.Width = math.max(150, math.min(Screen.Width, 1920))/10
+	Camera.Height = math.max(100, math.min(Screen.Height, 1080))/10
 end
 
 Client.DirectionalPad = nil
